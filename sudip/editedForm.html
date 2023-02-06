@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>message function</title>
+        <!-- <script src="validation_script.js"> -->
+            <script>
+                function showMessage(location,message,color){
+                    // if(!uname.match(/^[A-Z]$/))
+                    // alert("enter letter only")
+                    document.getElementById(location).innerHTML=message;
+                    document.getElementById(location).style.color=color;
+
+
+                }
+                function v(){
+                    var uname=document.getElementById('uname').value;
+
+                    if(uname=="")
+                    showMessage("abc" ,"field can't be empty","red");
+                    else if(uname.length<3)
+                    showMessage("abc","enter more character","blue");
+                    else if(!uname.match(/[A-Za-z]{3,10}\s{1}[A-Za-z]{2,10}$/))
+                    showMessage("abc","letters only","red");
+                    else
+                    showMessage("abc","valid user name","green");
+
+                }
+                // document,getElementById('uname')
+                function phonevalid(){
+                    
+                    
+                    var phone=document.getElementById('pnum').value;
+                    if(phone.length==0)
+                    showMessage("errphone", "Error, field cant be empty", "red");
+                    else if(phone.length<10)
+                    showMessage("errphone","Error, enter at least 10 digit","red");
+		    else if(phone.length>10)
+                    showMessage("errphone","Error, enter at only 10 digit","red");
+                    else if(!phone.match(/[0-9]*$/))
+                    showMessage("errphone","Error Enter numbers only","blue");
+                    else if(phone.substr(0,2)!="98")
+		    showMessage("errphone","should staret with 98","black");
+                    else 
+                    showMessage("errphone","valid","green");
+                }
+
+
+            </script>
+
+        
+    </head>
+    <body>
+        <form action="">
+            enter name:<br>
+            <input type="text" onkeyup="v()"  id="uname" autofocus>
+            <span id="abc"></span><br><br>
+            
+            Enter the phone number: <br>
+            <input type="text" onkeyup="phonevalid()" id="pnum">
+            <span id="errphone"></span>
+
+        </form>
+    </body>
+</html>
