@@ -32,11 +32,13 @@ void main()
         {
             x=x+1;
             y=y+1;
-            p = p+(2*dy)-(2*dy);
+            p = p+(2*dy)-(2*dx);
         }
         putpixel(x,y,7);
+        // Declaring delay function to show animation of the line to be drawn
+        delay(20);
     }
-    outtextxy(x2+10,y2+10,"Sudip")
+    outtextxy(x2+10,y2+10,"Sudip Pradhan")
     getch();
     closegraph();
     
