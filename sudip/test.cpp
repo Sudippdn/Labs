@@ -1,28 +1,28 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
-class student
-{
-
-    string name;
-    int rollno;
-    private:
-    void inputdata()
-    {
-        cout<<"Give your name: ";
-        cin>>name;
-    }
-
-public:
-    void showdata()
-    {
-        inputdata();
-         cout<<"Name: "<<name;
-    }
-
-};
 int main()
 {
-student s;
-s.showdata();
+    int r,c,i,j;
+    cout<<"Enter number of rows and columns of matrix: ";
+    cin>>r>>c;
+    int a[r][c],b[r][c],s[r][c];
+    cout<<"Enter elements of first matrix: ";
+    for(i=0;i<r;i++)
+        for(j=0;j<c;j++)
+            cin>>a[i][j];
+    cout<<"Enter elements of second matrix: ";
+    for(i=0;i<r;i++)
+        for(j=0;j<c;j++)
+            cin>>b[i][j];
+    for(i=0;i<r;i++)
+        for(j=0;j<c;j++)
+            s[i][j]=a[i][j]+b[i][j];
+    cout<<"Sum of matrices:"<<endl;
+    for(i=0;i<r;i++)
+    {
+        for(j=0;j<c;j++)
+            cout<<s[i][j]<<" ";
+        cout<<endl;
+    }
     return 0;
 }
