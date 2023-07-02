@@ -6,7 +6,7 @@ void flood (int,int, int,int);
 void main()
 {
 int gd, gm =DETECT;
-clrscr()
+clrscr();
 detectgraph(&gd,&gm);
 initgraph(&gd, &gm, "C:\\TURBOC3\\BGI");
 rectangle(50,50,100,100);
