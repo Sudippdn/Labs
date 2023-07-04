@@ -20,12 +20,12 @@ if(getpixel(x,y)==old_col)
 delay(10);
 putpixel(x,y,fill_col);
 flood(x+1,y,fill_col,old_col);
-flood(x-y,y,fill_col, old_col);
+flood(x-1,y,fill_col, old_col);
 flood(x,y+1,fill_col, old_col);
 flood(x,y-1, fill_col, old_col);
 flood(x+1,y-1, fill_col, old_col);
 flood(x+1,y+1, fill_col, old_col);
 flood(x-1,y-1, fill_col, old_col);
-flood(x-1, y-1, fill_col, old_col);
+flood(x-1, y+1, fill_col, old_col);
 }
 }
