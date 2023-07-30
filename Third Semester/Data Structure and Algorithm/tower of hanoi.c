@@ -20,8 +20,8 @@ int main()
 	printf("Steps of tower of hanoi: \n");
 	/* In this case we took
 	source = A
-	destination = B
-	auxiliary = C
+	destination = C
+	auxiliary = B
 	*/
-	toh(n, 'A', 'B', 'C');
+	toh(n, 'A', 'C', 'B');
 }
