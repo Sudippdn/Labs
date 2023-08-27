@@ -33,7 +33,7 @@ void main(){
 	
 	for(iCnt=0;iCnt<3;iCnt++){
 		PolygonPoints[iCnt][0]+=320;
-		PolygonPoints[iCnt][1]=240-PolygonPoints[iCnt][1]
+		PolygonPoints[iCnt][1]=240-PolygonPoints[iCnt][1];
 		
 	}
 	PolyLine();
