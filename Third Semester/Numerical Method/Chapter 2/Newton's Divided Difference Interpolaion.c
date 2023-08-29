@@ -1,43 +1,43 @@
-//Newton's Divided Difference Interpolation
-#include <stdio.h>
-#define F(j, i) ((dd[j]-dd[j-1])/(x[i]-x[j-1-i]))
-
-int main()
-{
-	int n, i, j;
-	float dd[10], v = 0, p = 1, fx[10], x[10];
-
-	printf("Enter the number of data in a table: ");
-	scanf("%d", &n);
-	printf("Enter the value at which interpolation is to be calculated: ");
-	scanf("%f", &x[0]);
-
-	for (i = 0; i < n; i++)
-	{
-		printf("Enter the values of x and fx at i = %d: ", i);
-		scanf("%f %f", &x[i], &fx[i]);
-		dd[i] = fx[i];
+	//wap to implement newton divided difference interpolation
+	#include<stdio.h>
+	#include<math.h>
+	int main(){
+	    int x[10], y[10], p[10];
+	    int k,f,n,i,j=1,f1=1,f2=0;
+	    printf("NEWTON'S FORWARD DIVIDED DIFFERENCE INTERPOLATION\n");
+	    printf("\nEnter the number of observations: ");
+	    scanf("%d", &n);
+	
+	    printf("\nEnter the different values of x:\n");
+	    for (i=1;i<=n;i++)
+	        scanf("%d", &x[i]);
+	
+	    printf("\nThe corresponding values of y are:\n");
+	    for (i=1;i<=n;i++)
+	        scanf("%d", &y[i]);
+	
+	    f=y[1];
+	    printf("\nEnter the value of 'k' in f(k) you want to evaluate:\n");
+	    scanf("%d", &k);
+	
+	    do
+	    {
+	        for (i=1;i<=n-1;i++){
+	            p[i] = ((y[i+1]-y[i])/(x[i+j]-x[i]));
+	            y[i]=p[i];
+	        }
+	        f1=1;
+	        for(i=1;i<=j;i++)    {
+	        	
+	                f1*=(k-x[i]);
+	            }
+	        f2+=(y[1]*f1);
+	        n--;
+	        j++;
+	    }
+	
+	    while(n!=1);
+	    f+=f2;
+	    printf("\nf(%d) = %d", k , f);
+	    return 0;
 	}
-
-	for (i = 0; i < n; i++)
-	{
-		for (j = n - 1; j >= i + 1; j--)
-		{
-			dd[j] = F(j, i);
-		}
-	}
-
-	for (i = 0; i < n - 1; i++)
-	{
-		for (j = 0; j < i + 1; j++)
-		{
-			p = p * (x[0] - x[j]);
-		}
-		v = v + dd[i] * p;
-		p = 1;
-	}
-
-	printf("The interpolation of %f is %f", x, v);
-	return 0;
-}
-
