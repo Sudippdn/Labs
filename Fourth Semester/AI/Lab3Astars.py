@@ -9,31 +9,24 @@ goal = "D"
 
 
 def gbfs(graph, start):
-    rootToParentCost = 0
-    queue = [start + (rootToParentCost,)]  # Add starting node with initial cost
+    root_to_parent_cost = 0
+    queue = [start + (root_to_parent_cost,)]  
 
-    visitedNodes = []
-
+    visited_nodes = []
     while queue:
-        # Sort the queue based on f-score (total cost + heuristic)
         queue = sorted(queue, key=lambda x: x[1] + x[2] + x[3])
         node = queue.pop(0)
-
-        rootToParentCost = node[1] + node[3]
-
-        if node[0] not in visitedNodes:
-            visitedNodes.append(node[0])
-
+        root_to_parent_cost = node[1] + node[3]
+        if node not in visited_nodes:
+            visited_nodes.append(node)
             if node[0] == goal:
                 break
+        neighbours = graph[node[0]]
+        for neighbour in neighbours:
+            queue.append(neighbour + (root_to_parent_cost,))  # Add neighbors with cost
 
-            neighbours = graph[node[0]]
-            for neighbour in neighbours:
-                queue.append(neighbour + (rootToParentCost,))
-
-    return visitedNodes
+    return visited_nodes
 
 
 visitedNodes = gbfs(inputGraph, ('A', 5, 10))
-
 print(visitedNodes)

@@ -7,26 +7,21 @@ inputGraph = {
 
 goal = "C"
 
+
 def gbfs(graph, start):
     queue = [start]
-    visitedNodes = []
-
+    visited_nodes = []
     while queue:
-        # Sort the queue based on the heuristic value (second element in the tuple)
-        queue = sorted(queue, key=lambda x: x[1])
+        queue = sorted(queue, key=lambda x: x[1])  # Sort by weight
         node = queue.pop(0)
-
-        if node[0] not in visitedNodes:
-            visitedNodes.append(node[0])
-
+        if node not in visited_nodes:
+            visited_nodes.append(node)
             if node[0] == goal:
                 break
-
-            neighbours = graph[node[0]]
-            for neighbour in neighbours:
-                queue.append(neighbour)
-
-    return visitedNodes
+        neighbours = graph[node[0]]
+        for neighbour in neighbours:
+            queue.append(neighbour)
+    return visited_nodes
 
 
-print(gbfs(inputGraph, ("A", 13)))
+print(gbfs(inputGraph, ("A", 13)))  # Starting node with a heuristic cost of 13
