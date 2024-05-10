@@ -1,4 +1,4 @@
-// program for reflection along x-axis
+// program for reflection along y-axis
 #include<stdio.h>
 #include<conio.h>
 #include<graphics.h>
@@ -20,9 +20,9 @@ void Reflect(){
 	float angle;
 	int iCnt;
 	int tx,ty;
-	printf("endl");
+
 	for(iCnt=0;iCnt<3;iCnt++){
-	PolygonPoints[iCnt][1]=(480-PolygonPoints[iCnt][1]);
+	PolygonPoints[iCnt][0]=(640-PolygonPoints[iCnt][0]);
 	}
 	
 }
